@@ -9,28 +9,33 @@
 <ion-content padding>
   <ion-item>
   <ion-label>Gender</ion-label>
-  <ion-select [(ngModel)]="gender">
-    <ion-option value="f">Female</ion-option>
+  <ion-select>
+    <ion-option value="f" >Female</ion-option>
     <ion-option value="m">Male</ion-option>
   </ion-select>
 </ion-item>
 
 <ion-item>
   <ion-label>Date of Birth</ion-label>
-  <ion-datetime displayFormat="DD/MMM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+  <ion-datetime displayFormat="DD/MMM/YYYY" ></ion-datetime>
 </ion-item>
 
 <ion-item>
   <ion-label>Email address</ion-label>
-    <ion-input type="email" ></ion-input>
+    <ion-input ngControl="myControl" ></ion-input>
+  <!-- ngControl is used to call the formcontrol funtion -->
   </ion-item>
 
   <ion-item>
       <ion-label class="agreement" >Check here to indicate that you <br/> have read and agree to the terms of <br/> the Project-I Customer Agreement</ion-label>
-      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+      <ion-checkbox ></ion-checkbox>
     </ion-item>
 
-  <button ion-button block>Next</button>
+  <button ion-button block icon-end (click)="selection()" >
+    <!--  class="item-disabled"  = this to be included in button brackets to call item-disabled class from home.scss-->
+    Next
+    <ion-icon name="arrow-round-forward" item-end></ion-icon>
+  </button>
 
 
 </ion-content>
